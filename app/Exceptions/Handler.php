@@ -62,7 +62,7 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('login');
     }
-}
+
     protected $dontReport = [
         //
     ];
