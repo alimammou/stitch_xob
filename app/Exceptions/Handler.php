@@ -63,9 +63,7 @@ class Handler extends ExceptionHandler
         return redirect()->guest('login');
     }
 
-    protected $dontReport = [
-        //
-    ];
+   
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
