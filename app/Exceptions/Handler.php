@@ -8,6 +8,12 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+    use Throwable;
+
+public function report(Throwable $exception);
+public function shouldReport(Throwable $exception);
+public function render($request, Throwable $exception);
+public function renderForConsole($output, Throwable $exception);
     /**
      * A list of the exception types that should not be reported.
      *
@@ -39,11 +45,7 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
-    {
-        return parent::render($request, $exception);
-    }
-
+ 
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
