@@ -19,8 +19,18 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('devname')->nullable();
+            $table->boolean("skipped_profile")->default('0');
+            $table->string('role')->default('2');
+            $table->string('rank')->nullable();
+            $table->string('rewardpercentage')->nullable();
+            $table->float('points')->default('0');
+            $table->float('tester_points')->default('0');
+            $table->boolean('shadow_ban')->default('0');
+            $table->boolean('ban')->default('0');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
