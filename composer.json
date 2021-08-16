@@ -12,8 +12,8 @@
         "fzaninotto/faker": "1.8.*",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "^8.5",
-        "symfony/css-selector": "4.0.*",
-        "symfony/dom-crawler": "4.0.*",
+        "symfony/css-selector": "5.0.*",
+        "symfony/dom-crawler": "5.0.*",
         "kylekatarnls/update-helper":"1.2.1",
         "filp/whoops": "2.0",
         "laravel/helpers": "1.4.1"
