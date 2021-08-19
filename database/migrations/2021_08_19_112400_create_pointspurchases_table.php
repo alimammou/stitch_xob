@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Storepurchases extends Migration
+class CreatePointspurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class Storepurchases extends Migration
      */
     public function up()
     {
-        Schema::create('storepurchases', function (Blueprint $table) {
+        Schema::create('pointspurchases', function (Blueprint $table) {
             $table->id();
-            $table->string('storeitem_id');
-            $table->string('storecode_id');
             $table->string('user_id');
-            $table->string('purchasedfor');
+            $table->string('invoiceid');
+            $table->string('invoiceconfirmed');
+            $table->string('amount_in_usd');
+            $table->string('status');
+            $table->string('rate');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class Storepurchases extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('pointspurchases');
     }
 }
