@@ -50,10 +50,8 @@
 
     </x-app-layout>
 <script type="text/javascript">
-        let form=<?php echo json_encode($form->form_builder_json, JSON_HEX_TAG); ?>;;
-        console.log(form);
+        let form=<?php echo json_encode($form->form_builder_json, JSON_HEX_TAG); ?>;
         var x=JSON.parse(form);
-        console.log(x[0].type);
         let render=document.getElementById('form');
         for (var i=0;i<x.length;i++)
         {
@@ -131,6 +129,5 @@
             else
                     answers[i] = document.getElementsByName('question-'+ i)[0].value;
             }
-            console.log(answers);
         }
 </script>

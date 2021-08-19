@@ -97,7 +97,6 @@
             var question = document.createElement("div");
             var options=x[i].options;
             var answers=x[i].answer;
-            console.log(answers);
             let ht="";
             var cc=0;
             for(var j=0;j<options.length;j++) {

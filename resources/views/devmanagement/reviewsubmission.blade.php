@@ -61,10 +61,8 @@
 
     </x-app-layout>
 <script type="text/javascript">
-    let form=<?php echo json_encode($submissions->content, JSON_HEX_TAG); ?>;;
-    console.log(form);
+    let form=<?php echo json_encode($submissions->content, JSON_HEX_TAG); ?>;
     var x=JSON.parse(form);
-    console.log(x[0].type);
     let render=document.getElementById('form');
     for (var i=0;i<x.length;i++)
     {
@@ -87,7 +85,6 @@
             var question = document.createElement("div");
             var options=x[i].options;
             var answers=x[i].answer;
-            console.log(answers);
             let ht="";
             var cc=0;
             for(var j=0;j<options.length;j++) {

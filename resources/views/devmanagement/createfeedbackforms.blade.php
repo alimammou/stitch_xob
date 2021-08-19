@@ -181,7 +181,6 @@
      //   var elem = document.querySelector(".DDCFFQHolder");
         var initElement = document.querySelector(".DDCFFQHolder");
         var json = mapDOM(initElement, true);
-        console.log(json);
    //     var i,questions;
       //  alert(elem.childElementCount);
        //  elem = JSON.stringify(elem);
@@ -193,7 +192,6 @@
     // Test with a string.
   //  initElement = "<div><span>text</span>Text2</div>";
   //  json = mapDOM(initElement, true);
-   // console.log(json);
 
     function mapDOM(element, json) {
         var treeObject = [];
@@ -203,9 +201,7 @@
         //Recursively loop through DOM elements and assign properties to object
         function treeHTML(treeObject) {
           var  elem=document.getElementsByClassName('DDCFFQ');
-         // console.log(elem[0].childElementCount);
             var element=elem.childNodes;
-         //   console.log(element[3].childElementCount);
             for(let i=0;i<elem.length;i++) {
                 var object = {};
                 var c = elem[i];
@@ -222,7 +218,6 @@
                 {
                     var q=x[2].children;
                     var qq=q[0].children;
-                   // console.log(q.length);
                     if(qq[0].value=="")
                     {
                         alert('you need to fill all fields');

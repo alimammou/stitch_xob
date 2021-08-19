@@ -21,6 +21,7 @@ class CreatePointspurchasesTable extends Migration
             $table->string('amount_in_usd');
             $table->string('status');
             $table->string('rate');
+            $table->string('delivery_id');
             $table->timestamps();
         });
     }

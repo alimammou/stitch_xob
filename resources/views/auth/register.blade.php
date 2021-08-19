@@ -70,7 +70,6 @@
     function myFunction()
     {
         var elem = document.getElementById('select');
-        console.log(elem.value)
         if(elem.value==2)
         {
             var x = document.getElementById('devfield');

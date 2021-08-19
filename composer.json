@@ -10,7 +10,10 @@
         "laravel/fortify": "^1.8",
         "fideloper/proxy": "^4.4",
         "tabuna/breadcrumbs": "^2.3",
-        "orchid/platform": "^10.12"
+        "orchid/platform": "^10.12",
+        "btcpayserver/btcpayserver-php-client": "^1.0",
+        "itsgoingd/clockwork": "^5.1",
+        "orchid/crud": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "1.8.*",

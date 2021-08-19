@@ -10810,7 +10810,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * var array = [1];
      * var other = _.concat(array, 2, [3], [[4]]);
      *
-     * console.log(other);
+     * `console.log(other);
      * // => [1, 2, 3, [4]]
      *
      * console.log(array);

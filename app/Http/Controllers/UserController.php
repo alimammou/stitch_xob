@@ -10,6 +10,12 @@ use App\Models\profile;
 use App\Models\User;
 use App\Rules\buypoints;
 use App\Rules\enoughpoints;
+use BTCPayServer\Buyer;
+use BTCPayServer\Currency;
+use BTCPayServer\Invoice;
+use BTCPayServer\Item;
+use BTCPayServer\Storage\EncryptedFilesystemStorage;
+use BTCPayServer\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -98,7 +104,85 @@ class UserController extends Controller
     public function addpoints(Request $request)
     { if(Auth::user()->ban==1)
         return view('banned');
+        $key_dir = public_path( '/btcpay_token');
+        $storageEngine = new EncryptedFilesystemStorage('TopSecretPassword');
+        $privateKey = $storageEngine->load($key_dir . '/btcpay.pri');
+        $publicKey = $storageEngine->load($key_dir . '/btcpay.pub');
+        $client = new \BTCPayServer\Client\Client();
+//$network       = new \BTCPayServer\Network\Testnet();
+        $adapter = new \BTCPayServer\Client\Adapter\CurlAdapter();
+        $client->setPrivateKey($privateKey);
+        $client->setPublicKey($publicKey);
+        $client->setUri('https://payment.stitch.games:443');
+        $client->setAdapter($adapter);
+        $token = new Token();
+        $token->setToken('4YgBgCtqixswnobx8mV2CbpeCWEJ94zAEngjoCdntuJe'); // UPDATE THIS VALUE
+        /**
+         * Token object is injected into the client
+         */
+        $client->setToken($token);
+        /**
+         * This is where we will start to create an Invoice object, make sure to check
+         * the InvoiceInterface for methods that you can use.
+         */
+        $invoice = new Invoice();
+        $buyer = new Buyer();
+        $buyer->setEmail(Auth::user()->email);
+// See 002.php for explanation
+#$storageEngine = new \BTCPayServer\Storage\EncryptedFilesystemStorage('YourTopSecretPassword'); // Password may need to be updated if you changed it
 
+// ---------------------------
+        /**
+         * The last object that must be injected is the token object.
+         */
+
+
+
+
+
+// Add the buyers info to invoice
+        $invoice->setBuyer($buyer);
+
+        /**
+         * Item is used to keep track of a few things
+         */
+        $item = new Item();
+        $item->setCode('skuNumber')->setDescription('General Description of Item')->setPrice('0.5');
+        $invoice->setItem($item);
+
+        /**
+         * BitPay supports multiple different currencies. Most shopping cart applications
+         * and applications in general have defined set of currencies that can be used.
+         * Setting this to one of the supported currencies will create an invoice using
+         * the exchange rate for that currency.
+         *
+         * @see https://test.bitpay.com/bitcoin-exchange-rates for supported currencies
+         */
+        $invoice->setCurrency(new Currency('USD'));
+// Configure the rest of the invoice
+        $invoice->setOrderId('OrderIdFromYourSystem')
+            // You will receive IPN's at this URL, should be HTTPS for security purposes!
+            ->setNotificationUrl('https://store.example.com/bitpay/callback');
+        /**
+         * Updates invoice with new information such as the invoice id and the URL where
+         * a customer can view the invoice.
+         */
+        try {
+            //  echo "Creating invoice at BitPay now." . PHP_EOL;
+            $client->createInvoice($invoice);
+        } catch (\Exception $e) {
+            echo "Exception occured: " . $e->getMessage() . PHP_EOL;
+            $request = $client->getRequest();
+            $response = $client->getResponse();
+            echo (string)$request . PHP_EOL . PHP_EOL . PHP_EOL;
+            echo (string)$response . PHP_EOL . PHP_EOL;
+            exit(1); // We do not want to continue if something went wrong
+        }
+        echo   $invoice->getUrl() ;
+        return redirect($invoice->getUrl());
+//        echo 'Invoice "' . $invoice->getId() . '" created, see ' . $invoice->getUrl() . PHP_EOL;
+        //   echo "Verbose details." . PHP_EOL;
+        //    print_r($invoice);
         // request()->validate(
         //      [
         //         'points'=>['required']
@@ -108,7 +192,6 @@ class UserController extends Controller
         //  $u= user::find(Auth::user()->id);
         // $u->points=$u->points+$request->points  ;
         //  $u->save();
-        return redirect();
     }
 
     public function aidrequest(Request $request)

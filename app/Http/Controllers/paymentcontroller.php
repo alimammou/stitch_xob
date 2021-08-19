@@ -115,12 +115,13 @@ class paymentcontroller extends Controller
         $adapter = new \BTCPayServer\Client\Adapter\CurlAdapter();
         $client->setPrivateKey($privateKey);
         $client->setPublicKey($publicKey);
-        $client->setUri('https://payment.stitch.games');
+        $client->setUri('https://payment.stitch.games:443');
         $client->setAdapter($adapter);
 // ---------------------------
         /**
          * The last object that must be injected is the token object.
          */
+
         $token = new Token();
         $token->setToken('4YgBgCtqixswnobx8mV2CbpeCWEJ94zAEngjoCdntuJe'); // UPDATE THIS VALUE
         /**
@@ -143,7 +144,7 @@ class paymentcontroller extends Controller
          * Item is used to keep track of a few things
          */
         $item = new Item();
-        $item->setCode('skuNumber')->setDescription('General Description of Item')->setPrice('0.1');
+        $item->setCode('skuNumber')->setDescription('General Description of Item')->setPrice('0.5');
         $invoice->setItem($item);
 
         /**

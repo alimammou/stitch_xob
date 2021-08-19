@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bab055e5d921c540bb0ed539b7a67360",
+    "content-hash": "d8bc42129ed4d570caac45af14cecd67",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -118,6 +118,73 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "btcpayserver/btcpayserver-php-client",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/btcpayserver/btcpayserver-php-client.git",
+                "reference": "2b5720b9d2996dfcc4eda546804fff8ac60c272f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/btcpayserver/btcpayserver-php-client/zipball/2b5720b9d2996dfcc4eda546804fff8ac60c272f",
+                "reference": "2b5720b9d2996dfcc4eda546804fff8ac60c272f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "behat/behat": "2.5.*@stable",
+                "behat/mink": "1.6.1",
+                "behat/mink-extension": "1.3.*",
+                "behat/mink-goutte-driver": "1.*",
+                "behat/mink-selenium2-driver": "1.2.0",
+                "fabpot/goutte": "~1.0.4",
+                "fzaninotto/faker": "~1.4.0",
+                "mikey179/vfsstream": "~1.4.0",
+                "phpmd/phpmd": "~2.1.3",
+                "phpunit/phpunit": "~4.8.35",
+                "satooshi/php-coveralls": "~0.6.1",
+                "squizlabs/php_codesniffer": "~1.5.5",
+                "symfony/phpunit-bridge": "^4.0"
+            },
+            "suggest": {
+                "ext-gmp": "Quickest PHP math extension for doing computationally-expensive work."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "BTCPayServer Developer Community",
+                    "homepage": "https://github.com/btcpayserver"
+                }
+            ],
+            "description": "PHP Library to work with the new cryptographically secure BTCPayServer API",
+            "homepage": "https://github.com/btcpayserver/btcpayserver-php-client",
+            "keywords": [
+                "bitcoin",
+                "btcpayserver"
+            ],
+            "support": {
+                "issues": "https://github.com/btcpayserver/btcpayserver-php-client/issues",
+                "source": "https://github.com/btcpayserver/btcpayserver-php-client"
+            },
+            "time": "2019-08-17T07:20:25+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -668,6 +735,75 @@
                 }
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "itsgoingd/clockwork",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsgoingd/clockwork.git",
+                "reference": "b963dee47429a49c9669981cfa9a8362ce209278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/b963dee47429a49c9669981cfa9a8362ce209278",
+                "reference": "b963dee47429a49c9669981cfa9a8362ce209278",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.6",
+                "psr/log": "1.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Clockwork\\Support\\Laravel\\ClockworkServiceProvider"
+                    ],
+                    "aliases": {
+                        "Clockwork": "Clockwork\\Support\\Laravel\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Clockwork\\": "Clockwork/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "itsgoingd",
+                    "email": "itsgoingd@luzer.sk",
+                    "homepage": "https://twitter.com/itsgoingd"
+                }
+            ],
+            "description": "php dev tools in your browser",
+            "homepage": "https://underground.works/clockwork",
+            "keywords": [
+                "Devtools",
+                "debugging",
+                "laravel",
+                "logging",
+                "lumen",
+                "profiling",
+                "slim"
+            ],
+            "support": {
+                "issues": "https://github.com/itsgoingd/clockwork/issues",
+                "source": "https://github.com/itsgoingd/clockwork/tree/v5.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/itsgoingd",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-08-07T23:04:17+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -1834,6 +1970,69 @@
                 }
             ],
             "time": "2021-06-23T19:26:10+00:00"
+        },
+        {
+            "name": "orchid/crud",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchidsoftware/crud.git",
+                "reference": "92f9736d715be852c79e00ab3f1e50447bd9ec02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchidsoftware/crud/zipball/92f9736d715be852c79e00ab3f1e50447bd9ec02",
+                "reference": "92f9736d715be852c79e00ab3f1e50447bd9ec02",
+                "shasum": ""
+            },
+            "require": {
+                "orchid/platform": "^10.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orchid\\Crud\\CrudServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orchid\\Crud\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandr Chernyaev",
+                    "email": "bliz48rus@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Build CRUD apps in fewer lines of code for Laravel Orchid.",
+            "homepage": "https://github.com/orchid/crud",
+            "keywords": [
+                "crud",
+                "orchid"
+            ],
+            "support": {
+                "issues": "https://github.com/orchidsoftware/crud/issues",
+                "source": "https://github.com/orchidsoftware/crud/tree/3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/orchid",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2021-07-06T10:16:00+00:00"
         },
         {
             "name": "orchid/icons",

@@ -176,8 +176,6 @@
     let genres=<?php echo json_encode($test->genres, JSON_HEX_TAG); ?>;
     genres=JSON.parse(genres);
     elements=document.getElementsByName('genres[]');
-    console.log(genres)
-    console.log(elements[0].value)
     for(let i=0; i<genres.length;i++)
         for(let j=0; j<elements.length;j++)
         {
